@@ -18,13 +18,23 @@ public class Posicion {
         if((fila < 1) || (fila > 8)){
             throw new IllegalArgumentException("La posición del Rey es incorrecta");
         }
-        this.fila=fila;
+        this.fila = fila;
     }
 
     public void setColumna(char columna){
         if(columna > 'h'){
             throw new IllegalArgumentException("La posición del Rey es incorrecta");
         }
-        this.columna=columna;
+        this.columna = columna;
+    }
+
+    public Posicion(int fila, char columna){
+        setFila(fila);
+        setColumna(columna);
+    }
+
+    public Posicion(Posicion p){
+        fila = p.getFila();
+        columna = p.getColumna();
     }
 }
