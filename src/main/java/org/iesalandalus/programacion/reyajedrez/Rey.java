@@ -6,8 +6,16 @@ public class Rey {
     private int totalMovimientos;
 
     public Rey(){
-        posicion.setFila(1);
-        posicion.setColumna('e');
+        posicion = new Posicion(1, 'e');
+    }
+
+    public Rey(Color color){
+        if(color.toString().equals(Color.BLANCO.toString())){
+            posicion = new Posicion(1, 'e');
+        }
+        if(color.toString().equals(Color.NEGRO.toString())){
+            posicion = new Posicion(8,'e');
+        }
     }
     public Color getColor(){
         return color;
@@ -16,11 +24,7 @@ public class Rey {
     public Posicion getPosicion(){
         return posicion;
     }
-/*
-Crea los métodos get y set para cada atributo con la visibilidad adecuada. Los métodos set siempre comprobarán
-la validez de los parámetros pasados y si no son correctos deberá lanzar la excepción adecuada con el mensaje adecuado.
-Realiza un commit.
- */
+
     public void setColor(Color color){
         boolean valido = false;
         for(Color aux : Color.values())
