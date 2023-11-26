@@ -5,6 +5,10 @@ public class Rey {
     private Posicion posicion;
     private int totalMovimientos;
 
+    public Rey(){
+        posicion.setFila(1);
+        posicion.setColumna('e');
+    }
     public Color getColor(){
         return color;
     }
