@@ -9,8 +9,8 @@ public enum Direccion {
     SUROESTE("SUROESTE"),
     OESTE("OESTE"),
     NOROESTE("NOROESTE"),
-    ENROQUE_CORTO("ENROQUE CORTO"),
-    ENROQUE_LARGO("ENROQUE LARGO");
+    ENROQUE_CORTO("ENROQUE_CORTO"),
+    ENROQUE_LARGO("ENROQUE_LARGO");
 
     private String direccion;
     private Direccion(String direccion){

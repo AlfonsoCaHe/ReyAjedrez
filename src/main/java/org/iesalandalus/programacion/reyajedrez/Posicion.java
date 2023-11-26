@@ -17,14 +17,14 @@ public class Posicion {
 
     public void setFila(int fila){
         if((fila < 1) || (fila > 8)){
-            throw new IllegalArgumentException("La posición del Rey es incorrecta");
+            throw new IllegalArgumentException("ERROR: La posición de la fila del Rey es incorrecta");
         }
         this.fila = fila;
     }
 
     public void setColumna(char columna){
         if(columna > 'h'){
-            throw new IllegalArgumentException("La posición del Rey es incorrecta");
+            throw new IllegalArgumentException("ERROR: La posición de la columna del Rey es incorrecta");
         }
         this.columna = columna;
     }
