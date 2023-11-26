@@ -1,4 +1,4 @@
-package org.iesalandalus.programacion.reyajedrez;
+package org.iesalandalus.programacion.reyajedrez.modelo;
 
 import java.lang.IllegalArgumentException;
 import java.util.Objects;
