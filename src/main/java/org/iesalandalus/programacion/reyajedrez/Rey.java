@@ -9,15 +9,19 @@ public class Rey {
 
     public Rey(){
         posicion = new Posicion(1, 'e');
+        totalMovimientos = 0;
     }
 
     public Rey(Color color){
         if(color.toString().equals(Color.BLANCO.toString())){
             posicion = new Posicion(1, 'e');
+            this.color = Color.BLANCO;
         }
         if(color.toString().equals(Color.NEGRO.toString())){
             posicion = new Posicion(8,'e');
+            this.color = Color.NEGRO;
         }
+        totalMovimientos = 0;
     }
     public Color getColor(){
         return color;
@@ -185,5 +189,10 @@ public class Rey {
             default:
                 throw new IllegalArgumentException("ERROR: No se ha introducido una dirección válida");
         }
+    }
+
+    @Override
+    public String toString(){
+        return "Rey "+color.toString() +" en " + posicion.getFila() + posicion.getColumna();
     }
 }
