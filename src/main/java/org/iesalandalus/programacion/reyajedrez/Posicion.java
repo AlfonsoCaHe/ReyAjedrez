@@ -52,4 +52,9 @@ public class Posicion {
     public int hashCode(){
         return Objects.hash(fila);
     }
+
+    @Override
+    public String toString(){
+        return "" + fila + columna;
+    }
 }
