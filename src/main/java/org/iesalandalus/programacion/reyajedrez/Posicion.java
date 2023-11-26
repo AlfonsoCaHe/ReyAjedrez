@@ -1,6 +1,7 @@
 package org.iesalandalus.programacion.reyajedrez;
 
 import java.lang.IllegalArgumentException;
+import java.util.Objects;
 
 public class Posicion {
     private int fila;
@@ -36,5 +37,19 @@ public class Posicion {
     public Posicion(Posicion p){
         fila = p.getFila();
         columna = p.getColumna();
+    }
+
+    public boolean equals(Posicion p1){
+        if(fila != p1.getFila()){
+            return false;
+        }else if(columna != p1.getColumna()){
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(fila);
     }
 }
