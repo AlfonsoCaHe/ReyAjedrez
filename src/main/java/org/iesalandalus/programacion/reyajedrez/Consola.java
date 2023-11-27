@@ -1,6 +1,7 @@
 package org.iesalandalus.programacion.reyajedrez;
 
 import org.iesalandalus.programacion.utilidades.Entrada;
+import org.iesalandalus.programacion.reyajedrez.modelo.Color;
 
 public class Consola {
     private Consola(){
@@ -23,6 +24,18 @@ public class Consola {
             opcion = Entrada.entero();
         }while((opcion < 1) || (opcion > 4));//Las opciones van del 1 al 4
         return opcion;
+    }
+
+    public static Color elegirOpcion(){
+        int opcion;
+        do{
+            System.out.println("Escoja un color: (1.BLANCO o 2.NEGRO)");
+            opcion = Entrada.entero();
+        }while ((opcion < 1) || (opcion > 2));
+        if(opcion == 1){
+            return Color.BLANCO;
+        }
+        return Color.NEGRO;
     }
 
 }
