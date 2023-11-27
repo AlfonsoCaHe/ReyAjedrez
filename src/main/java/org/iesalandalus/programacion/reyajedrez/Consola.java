@@ -43,4 +43,13 @@ public class Consola {
         System.out.println("1.Suroeste\t2.Sur\t3.Sureste");
     }
 
+    public static int elegirDireccion(){
+        int opcion;
+        do{
+            System.out.println("Escoja una dirección:");
+            mostrarMenuDirecciones();
+            opcion = Entrada.entero();
+        }while((opcion < 1) || (opcion == 5) || (opcion > 9));
+        return opcion;
+    }
 }
