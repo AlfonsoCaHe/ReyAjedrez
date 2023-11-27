@@ -164,8 +164,9 @@ public class Rey {
                     }
                     a = Character.toString(nuevaColumna).charAt(0);
                     posicion = new Posicion(posicion.getFila(),a);
+                }else{
+                    System.out.println("El rey ya se ha movido, no puede hacer un enroque corto");
                 }
-
                 break;
             case "Enroque largo"://Un enroque largo baja dos columnas
                 if(totalMovimientos == 0){//Para que el rey pueda hacer un enroque, debe no haberse desplazado ninguna casilla
@@ -180,6 +181,8 @@ public class Rey {
                     }
                     a = Character.toString(nuevaColumna).charAt(0);
                     posicion = new Posicion(posicion.getFila(),a);
+                }else{
+                    System.out.println("El rey ya se ha movido, no puede hacer un enroque largo");
                 }
                 break;
             default:
