@@ -14,11 +14,11 @@ public class Rey {
     }
 
     public Rey(Color color){
-        if(color.toString().equals(Color.BLANCO.toString())){
+        if(color == Color.BLANCO){
             posicion = new Posicion(1, 'e');
             this.color = Color.BLANCO;
         }
-        if(color.toString().equals(Color.NEGRO.toString())){
+        if(color == Color.NEGRO){
             posicion = new Posicion(8,'e');
             this.color = Color.NEGRO;
         }
@@ -161,40 +161,34 @@ public class Rey {
                 break;
 
             case ENROQUE_CORTO://Un enroque corto sube dos columnas
-                if(totalMovimientos == 0){//Para que el rey pueda hacer un enroque, debe no haberse desplazado ninguna casilla
-                    nuevaColumna += 2;
-                    if(nuevaColumna > 104){//El rey se mueve fuera del tablero
+                comprobarEnroque();//Comprobamos que el rey pueda llevar a cabo un enroque corto
+                nuevaColumna += 2;
+                if(nuevaColumna > 104){//El rey se mueve fuera del tablero
+                    throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
+                }
+                if(color.equals(Color.NEGRO)){//Si es el rey negro
+                    if(!posicion.equals(new Rey(Color.NEGRO).posicion)){//Si no está en su posición incial
                         throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                     }
-                    if(color.equals(Color.NEGRO)){//Si es el rey negro
-                        if(!posicion.equals(new Rey(Color.NEGRO).posicion)){//Si no está en su posición incial
-                            throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
-                        }
-                    }
-                    a = Character.toString(nuevaColumna).charAt(0);
-                    posicion = new Posicion(posicion.getFila(),a);
-                    totalMovimientos++;
-                }else{
-                    System.out.println("El rey ya se ha movido, no puede hacer un enroque corto");
                 }
+                a = Character.toString(nuevaColumna).charAt(0);
+                posicion = new Posicion(posicion.getFila(),a);
+                totalMovimientos++;
                 break;
             case ENROQUE_LARGO://Un enroque largo baja dos columnas
-                if(totalMovimientos == 0){//Para que el rey pueda hacer un enroque, debe no haberse desplazado ninguna casilla
-                    nuevaColumna -= 2;
-                    if(nuevaColumna < 97){//El rey se mueve fuera del tablero
+                comprobarEnroque();//Comprobamos que el rey pueda llevar a cabo un enroque largo
+                nuevaColumna -= 2;
+                if(nuevaColumna < 97){//El rey se mueve fuera del tablero
+                    throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
+                }
+                if(color.equals(Color.BLANCO)){//Si es el rey blanco
+                    if(!posicion.equals(new Rey(Color.BLANCO).posicion)){//Si no está en su posición inicial
                         throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                     }
-                    if(color.equals(Color.BLANCO)){//Si es el rey blanco
-                        if(!posicion.equals(new Rey(Color.BLANCO).posicion)){//Si no está en su posición inicial
-                            throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
-                        }
-                    }
-                    a = Character.toString(nuevaColumna).charAt(0);
-                    posicion = new Posicion(posicion.getFila(),a);
-                    totalMovimientos++;
-                }else{
-                    System.out.println("El rey ya se ha movido, no puede hacer un enroque largo");
                 }
+                a = Character.toString(nuevaColumna).charAt(0);
+                posicion = new Posicion(posicion.getFila(),a);
+                totalMovimientos++;
                 break;
             default:
                 throw new IllegalArgumentException("ERROR: No se ha introducido una dirección válida");
@@ -204,6 +198,16 @@ public class Rey {
     private void comprobarEnroque() throws OperationNotSupportedException {//Comprueba que el rey pueda hacer un enroque
         if(totalMovimientos > 0){
             throw new OperationNotSupportedException("ERROR: el rey ya se ha movido, no puede hacer un enroque");
+        }
+        if(color == Color.BLANCO){//Comprobamos si el rey es blanco, en caso de ser así, debería estar en su posición inicial
+            if((posicion.getFila() != 1) || (posicion.getColumna() != 'e')){//Si no está en su posición inicial (1e)
+                throw new OperationNotSupportedException("ERROR: el rey BLANCO no está en la posición correcta");
+            }
+        }
+        if(color == Color.NEGRO){//Comprobamos si el rey es blanco, en caso de ser así, debería estar en su posición inicial
+            if((posicion.getFila() != 8) || (posicion.getColumna() != 'e')){//Si no está en su posición inicial (8e)
+                throw new OperationNotSupportedException("ERROR: el rey NEGRO no está en la posición correcta");
+            }
         }
     }
 
