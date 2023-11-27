@@ -1,7 +1,10 @@
 package org.iesalandalus.programacion.reyajedrez;
 
+import org.iesalandalus.programacion.reyajedrez.modelo.Direccion;
 import org.iesalandalus.programacion.reyajedrez.modelo.Rey;
 import org.iesalandalus.programacion.utilidades.Entrada;
+
+import javax.naming.OperationNotSupportedException;
 
 public class MainApp {
     private static Rey rey;
@@ -9,7 +12,7 @@ public class MainApp {
 
     }
 
-    private static void ejecutarOpcion(int opcion){
+    private static void ejecutarOpcion(int opcion) throws OperationNotSupportedException {
         switch (opcion){
             case 1:
                 crearReyDefecto();
@@ -18,10 +21,13 @@ public class MainApp {
                 crearReyColor();
                 break;
             case 3:
-                mover();
+                Direccion direccion = Consola.elegirDireccion();
+                rey.mover(direccion);
                 break;
             case 4:
                 Consola.despedirse();
         }
     }
+
+
 }

@@ -31,7 +31,7 @@ public class Rey {
         return posicion;
     }
 
-    public void setColor(Color color){
+    private void setColor(Color color){
         boolean valido = false;
         for(Color aux : Color.values())
         {
@@ -45,7 +45,7 @@ public class Rey {
         }
     }
 
-    public void setPosicion(Posicion posicion){
+    private void setPosicion(Posicion posicion){
         if((posicion.getFila() < 1) || (posicion.getFila() > 8)){
             throw new IndexOutOfBoundsException("ERROR: La posición del Rey es incorrecta");
         }
@@ -74,9 +74,8 @@ public class Rey {
                 if((nuevaFila < 0) || (nuevaFila > 8)){//Si la fila sale del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
-                posicion.setFila(nuevaFila);
                 a = Character.toString(nuevaColumna).charAt(0);
-                posicion.setColumna(a);
+                posicion = new Posicion(nuevaFila, a);
                 break;
 
             case "Noreste"://Si nos movemos al noroeste subimos una fila y una columna
@@ -88,9 +87,8 @@ public class Rey {
                 if((nuevaFila < 0) || (nuevaFila > 8)){//Si la fila sale del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
-                posicion.setFila(nuevaFila);
                 a = Character.toString(nuevaColumna).charAt(0);
-                posicion.setColumna(a);
+                posicion = new Posicion(nuevaFila, a);
                 break;
 
             case "Sureste"://Si nos movemos al noroeste bajamos una fila y subimos una columna
@@ -102,9 +100,8 @@ public class Rey {
                 if((nuevaFila < 0) || (nuevaFila > 8)){//Si la fila sale del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
-                posicion.setFila(nuevaFila);
                 a = Character.toString(nuevaColumna).charAt(0);
-                posicion.setColumna(a);
+                posicion = new Posicion(nuevaFila, a);
                 break;
 
             case "Suroeste"://Si nos movemos al noroeste bajamos una fila y una columna
@@ -116,9 +113,8 @@ public class Rey {
                 if((nuevaFila < 0) || (nuevaFila > 8)){//Si la fila sale del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
-                posicion.setFila(nuevaFila);
                 a = Character.toString(nuevaColumna).charAt(0);
-                posicion.setColumna(a);
+                posicion = new Posicion(nuevaFila, a);
                 break;
 
             case "Norte"://Si nos movemos al norte subimos una fila
@@ -126,7 +122,7 @@ public class Rey {
                 if((nuevaFila < 0) || (nuevaFila > 8)){//Si la fila sale del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
-                posicion.setFila(nuevaFila);
+                posicion = new Posicion(nuevaFila, posicion.getColumna());
                 break;
 
             case "Sur"://Si nos movemos al sur bajamos una fila
@@ -134,7 +130,7 @@ public class Rey {
                 if((nuevaFila < 0) || (nuevaFila > 8)){//Si la fila sale del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
-                posicion.setFila(nuevaFila);
+                posicion = new Posicion(nuevaFila, posicion.getColumna());
                 break;
 
             case "Este"://Si nos movemos a este subimos una columna
@@ -143,7 +139,7 @@ public class Rey {
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
                 a = Character.toString(nuevaColumna).charAt(0);
-                posicion.setColumna(a);
+                posicion = new Posicion(posicion.getFila(),a);
                 break;
 
             case "Oeste"://Si nos movemos a este bajamos una columna
@@ -152,7 +148,7 @@ public class Rey {
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
                 a = Character.toString(nuevaColumna).charAt(0);
-                posicion.setColumna(a);
+                posicion = new Posicion(posicion.getFila(),a);
                 break;
 
             case "Enroque corto"://Un enroque corto sube dos columnas
@@ -167,7 +163,7 @@ public class Rey {
                         }
                     }
                     a = Character.toString(nuevaColumna).charAt(0);
-                    posicion.setColumna(a);
+                    posicion = new Posicion(posicion.getFila(),a);
                 }
 
                 break;
@@ -183,7 +179,7 @@ public class Rey {
                         }
                     }
                     a = Character.toString(nuevaColumna).charAt(0);
-                    posicion.setColumna(a);
+                    posicion = new Posicion(posicion.getFila(),a);
                 }
                 break;
             default:
