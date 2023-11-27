@@ -1,7 +1,11 @@
 package org.iesalandalus.programacion.reyajedrez;
 
+import org.iesalandalus.programacion.reyajedrez.modelo.Direccion;
+import org.iesalandalus.programacion.reyajedrez.modelo.Rey;
 import org.iesalandalus.programacion.utilidades.Entrada;
 import org.iesalandalus.programacion.reyajedrez.modelo.Color;
+
+import javax.naming.OperationNotSupportedException;
 
 public class Consola {
     private Consola(){
@@ -41,16 +45,58 @@ public class Consola {
         System.out.println("7.Noroeste\t8.Norte\t9.Noreste");
         System.out.println("4.Oeste\t\t\t\t6.Este");
         System.out.println("1.Suroeste\t2.Sur\t3.Sureste");
+        System.out.println("\n10.Enroque largo\t11.Enroque corto");
     }
 
-    public static int elegirDireccion(){
+    public static Direccion elegirDireccion(){
         int opcion;
         do{
             System.out.println("Escoja una dirección:");
             mostrarMenuDirecciones();
             opcion = Entrada.entero();
-        }while((opcion < 1) || (opcion == 5) || (opcion > 9));
-        return opcion;
+        }while((opcion < 1) || (opcion == 5) || (opcion > 11));
+        Direccion direccion = null;
+        switch (opcion){
+            case 7://Escogemos Noroeste
+                direccion = Direccion.NOROESTE;
+                break;
+
+            case 8://Escogemos Norte
+                direccion = Direccion.NORTE;
+                break;
+
+            case 9://Escogemos Noreste
+                direccion = Direccion.NORESTE;
+                break;
+
+            case 4://Escogemos Oeste
+                direccion = Direccion.OESTE;
+                break;
+
+            case 6://Escogemos Este
+                direccion = Direccion.ESTE;
+                break;
+
+            case 1://Escogemos Suroeste
+                direccion = Direccion.SUROESTE;
+                break;
+
+            case 2://Escogemos Sur
+                direccion = Direccion.SUR;
+                break;
+
+            case 3://Escogemos Sureste
+                direccion = Direccion.SURESTE;
+                break;
+
+            case 10://Escogemos enroque largo
+                direccion = Direccion.ENROQUE_LARGO;
+                break;
+            case 11://Escogemos enroque corto
+                direccion = Direccion.ENROQUE_CORTO;
+                break;
+        }
+        return direccion;
     }
 
     public static void despedirse(){
