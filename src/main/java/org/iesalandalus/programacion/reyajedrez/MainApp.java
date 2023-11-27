@@ -48,9 +48,12 @@ public class MainApp {
         do{
             try{
                 System.out.println("*****************************************");
-                System.out.println("¿En qué dirección desea desplazar el rey?");
-                Direccion direccion = Consola.elegirDireccion();
-                rey.mover(direccion);
+                mostrarRey();
+                if(rey != null){//Si el rey no se ha creado, este no se puede mover
+                    System.out.println("¿En qué dirección desea desplazar el rey?");
+                    Direccion direccion = Consola.elegirDireccion();
+                    rey.mover(direccion);
+                }
                 desplazado = true;
             }catch (OperationNotSupportedException oe){
                 System.out.println("ERROR: El rey no se puede mover en esa dirección.");

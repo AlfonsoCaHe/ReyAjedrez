@@ -9,6 +9,7 @@ public class Rey {
 
     public Rey(){
         posicion = new Posicion(1, 'e');
+        color = Color.BLANCO;
         totalMovimientos = 0;
     }
 
@@ -197,6 +198,12 @@ public class Rey {
                 break;
             default:
                 throw new IllegalArgumentException("ERROR: No se ha introducido una dirección válida");
+        }
+    }
+
+    private void comprobarEnroque() throws OperationNotSupportedException {//Comprueba que el rey pueda hacer un enroque
+        if(totalMovimientos > 0){
+            throw new OperationNotSupportedException("ERROR: el rey ya se ha movido, no puede hacer un enroque");
         }
     }
 
