@@ -76,6 +76,7 @@ public class Rey {
                 }
                 a = Character.toString(nuevaColumna).charAt(0);
                 posicion = new Posicion(nuevaFila, a);
+                totalMovimientos++;
                 break;
 
             case "Noreste"://Si nos movemos al noroeste subimos una fila y una columna
@@ -89,6 +90,7 @@ public class Rey {
                 }
                 a = Character.toString(nuevaColumna).charAt(0);
                 posicion = new Posicion(nuevaFila, a);
+                totalMovimientos++;
                 break;
 
             case "Sureste"://Si nos movemos al noroeste bajamos una fila y subimos una columna
@@ -102,6 +104,7 @@ public class Rey {
                 }
                 a = Character.toString(nuevaColumna).charAt(0);
                 posicion = new Posicion(nuevaFila, a);
+                totalMovimientos++;
                 break;
 
             case "Suroeste"://Si nos movemos al noroeste bajamos una fila y una columna
@@ -115,6 +118,7 @@ public class Rey {
                 }
                 a = Character.toString(nuevaColumna).charAt(0);
                 posicion = new Posicion(nuevaFila, a);
+                totalMovimientos++;
                 break;
 
             case "Norte"://Si nos movemos al norte subimos una fila
@@ -123,6 +127,7 @@ public class Rey {
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
                 posicion = new Posicion(nuevaFila, posicion.getColumna());
+                totalMovimientos++;
                 break;
 
             case "Sur"://Si nos movemos al sur bajamos una fila
@@ -131,6 +136,7 @@ public class Rey {
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
                 posicion = new Posicion(nuevaFila, posicion.getColumna());
+                totalMovimientos++;
                 break;
 
             case "Este"://Si nos movemos a este subimos una columna
@@ -140,6 +146,7 @@ public class Rey {
                 }
                 a = Character.toString(nuevaColumna).charAt(0);
                 posicion = new Posicion(posicion.getFila(),a);
+                totalMovimientos++;
                 break;
 
             case "Oeste"://Si nos movemos a este bajamos una columna
@@ -149,6 +156,7 @@ public class Rey {
                 }
                 a = Character.toString(nuevaColumna).charAt(0);
                 posicion = new Posicion(posicion.getFila(),a);
+                totalMovimientos++;
                 break;
 
             case "Enroque corto"://Un enroque corto sube dos columnas
@@ -164,6 +172,7 @@ public class Rey {
                     }
                     a = Character.toString(nuevaColumna).charAt(0);
                     posicion = new Posicion(posicion.getFila(),a);
+                    totalMovimientos++;
                 }else{
                     System.out.println("El rey ya se ha movido, no puede hacer un enroque corto");
                 }
@@ -181,6 +190,7 @@ public class Rey {
                     }
                     a = Character.toString(nuevaColumna).charAt(0);
                     posicion = new Posicion(posicion.getFila(),a);
+                    totalMovimientos++;
                 }else{
                     System.out.println("El rey ya se ha movido, no puede hacer un enroque largo");
                 }

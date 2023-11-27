@@ -51,11 +51,10 @@ public class Consola {
     public static Direccion elegirDireccion(){
         int opcion;
         do{
-            System.out.println("Escoja una dirección:");
             mostrarMenuDirecciones();
             opcion = Entrada.entero();
         }while((opcion < 1) || (opcion == 5) || (opcion > 11));
-        Direccion direccion = null;
+        Direccion direccion = Direccion.SURESTE;
         switch (opcion){
             case 7://Escogemos Noroeste
                 direccion = Direccion.NOROESTE;

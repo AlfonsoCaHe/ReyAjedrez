@@ -9,8 +9,13 @@ import javax.naming.OperationNotSupportedException;
 
 public class MainApp {
     private static Rey rey;
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws OperationNotSupportedException {
+        int opcion;
+        do{
+            opcion = Consola.elegirOpcionMenu();
+            ejecutarOpcion(opcion);
+            System.out.println("*****************************************");
+        }while(opcion != 4);//Aunque salga se ejecutará la opción para mostrar el mensaje de despedida, pero ya no continuará
     }
 
     private static void ejecutarOpcion(int opcion) throws OperationNotSupportedException {
@@ -26,7 +31,7 @@ public class MainApp {
                 mover();
                 break;
             case 4:
-                Consola.despedirse();
+                Consola.despedirse();//Nos despediremos al salir
         }
     }
 
@@ -42,8 +47,8 @@ public class MainApp {
         boolean desplazado = false;
         do{
             try{
+                System.out.println("*****************************************");
                 System.out.println("¿En qué dirección desea desplazar el rey?");
-                Consola.mostrarMenuDirecciones();
                 Direccion direccion = Consola.elegirDireccion();
                 rey.mover(direccion);
                 desplazado = true;
