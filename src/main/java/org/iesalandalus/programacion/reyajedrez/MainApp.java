@@ -51,7 +51,14 @@ public class MainApp {
                 System.out.println("ERROR: El rey no se puede mover en esa dirección.");
             }
         }while (!desplazado);
+    }
 
+    private static void mostrarRey(){
+        if(rey != null){
+            System.out.println(rey.toString());
+        }else{
+            System.out.println("De momento no se ha creado el rey.");
+        }
     }
 
 }
