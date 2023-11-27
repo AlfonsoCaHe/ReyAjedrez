@@ -9,7 +9,6 @@ public class Consola {
     }
 
     public static void mostrarMenu(){
-        System.out.println("Opciones:");
         System.out.println("1.Crear rey por defecto.");
         System.out.println("2.Crear rey eligiendo color.");
         System.out.println("3.Mover.");
@@ -36,6 +35,12 @@ public class Consola {
             return Color.BLANCO;
         }
         return Color.NEGRO;
+    }
+
+    public static void mostrarMenuDirecciones(){
+        System.out.println("7.Noroeste\t8.Norte\t9.Noreste");
+        System.out.println("4.Oeste\t\t\t\t6.Este");
+        System.out.println("1.Suroeste\t2.Sur\t3.Sureste");
     }
 
 }
