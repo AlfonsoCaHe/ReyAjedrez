@@ -52,4 +52,8 @@ public class Consola {
         }while((opcion < 1) || (opcion == 5) || (opcion > 9));
         return opcion;
     }
+
+    public static void despedirse(){
+        System.out.println("Muchas gracias por jugar.\n¡Nos vemos en la próxima partida!");
+    }
 }
