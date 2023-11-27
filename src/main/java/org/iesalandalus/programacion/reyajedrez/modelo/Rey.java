@@ -69,10 +69,10 @@ public class Rey {
             case NOROESTE://Si nos movemos al noroeste subimos una fila y bajamos una columna
                 nuevaFila += 1;
                 nuevaColumna -= 1;
-                if((nuevaColumna < 97) || (nuevaColumna > 104)){//El rey se mueve fuera del tablero
+                if(nuevaColumna < 97){//El rey se mueve fuera del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
-                if((nuevaFila < 0) || (nuevaFila > 8)){//Si la fila sale del tablero
+                if(nuevaFila > 8){//Si la fila sale del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
                 a = Character.toString(nuevaColumna).charAt(0);
@@ -83,10 +83,10 @@ public class Rey {
             case NORESTE://Si nos movemos al noroeste subimos una fila y una columna
                 nuevaFila += 1;
                 nuevaColumna += 1;
-                if((nuevaColumna < 97) || (nuevaColumna > 104)){//El rey se mueve fuera del tablero
+                if(nuevaColumna > 104){//El rey se mueve fuera del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
-                if((nuevaFila < 0) || (nuevaFila > 8)){//Si la fila sale del tablero
+                if(nuevaFila > 8){//Si la fila sale del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
                 a = Character.toString(nuevaColumna).charAt(0);
@@ -97,10 +97,10 @@ public class Rey {
             case SURESTE://Si nos movemos al noroeste bajamos una fila y subimos una columna
                 nuevaFila -= 1;
                 nuevaColumna += 1;
-                if((nuevaColumna < 97) || (nuevaColumna > 104)){//El rey se mueve fuera del tablero
+                if(nuevaColumna > 104){//El rey se mueve fuera del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
-                if((nuevaFila < 0) || (nuevaFila > 8)){//Si la fila sale del tablero
+                if(nuevaFila < 1){//Si la fila sale del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
                 a = Character.toString(nuevaColumna).charAt(0);
@@ -111,10 +111,10 @@ public class Rey {
             case SUROESTE://Si nos movemos al noroeste bajamos una fila y una columna
                 nuevaFila -= 1;
                 nuevaColumna -= 1;
-                if((nuevaColumna < 97) || (nuevaColumna > 104)){//El rey se mueve fuera del tablero
+                if(nuevaColumna < 97){//El rey se mueve fuera del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
-                if((nuevaFila < 0) || (nuevaFila > 8)){//Si la fila sale del tablero
+                if(nuevaFila < 1){//Si la fila sale del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
                 a = Character.toString(nuevaColumna).charAt(0);
@@ -124,7 +124,7 @@ public class Rey {
 
             case NORTE://Si nos movemos al norte subimos una fila
                 nuevaFila += 1;
-                if((nuevaFila < 0) || (nuevaFila > 8)){//Si la fila sale del tablero
+                if(nuevaFila > 8){//Si la fila sale del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
                 posicion = new Posicion(nuevaFila, posicion.getColumna());
@@ -133,7 +133,7 @@ public class Rey {
 
             case SUR://Si nos movemos al sur bajamos una fila
                 nuevaFila -= 1;
-                if((nuevaFila < 0) || (nuevaFila > 8)){//Si la fila sale del tablero
+                if(nuevaFila < 1){//Si la fila sale del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
                 posicion = new Posicion(nuevaFila, posicion.getColumna());
@@ -142,7 +142,7 @@ public class Rey {
 
             case ESTE://Si nos movemos a este subimos una columna
                 nuevaColumna += 1;
-                if((nuevaColumna < 97) || (nuevaColumna > 104)){//El rey se mueve fuera del tablero
+                if(nuevaColumna > 104){//El rey se mueve fuera del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
                 a = Character.toString(nuevaColumna).charAt(0);
@@ -152,7 +152,7 @@ public class Rey {
 
             case OESTE://Si nos movemos a este bajamos una columna
                 nuevaColumna -= 1;
-                if((nuevaColumna < 97) || (nuevaColumna > 104)){//El rey se mueve fuera del tablero
+                if(nuevaColumna < 97){//El rey se mueve fuera del tablero
                     throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                 }
                 a = Character.toString(nuevaColumna).charAt(0);
@@ -163,7 +163,7 @@ public class Rey {
             case ENROQUE_CORTO://Un enroque corto sube dos columnas
                 if(totalMovimientos == 0){//Para que el rey pueda hacer un enroque, debe no haberse desplazado ninguna casilla
                     nuevaColumna += 2;
-                    if((nuevaColumna < 97) || (nuevaColumna > 104)){//El rey se mueve fuera del tablero
+                    if(nuevaColumna > 104){//El rey se mueve fuera del tablero
                         throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                     }
                     if(color.equals(Color.NEGRO)){//Si es el rey negro
@@ -181,7 +181,7 @@ public class Rey {
             case ENROQUE_LARGO://Un enroque largo baja dos columnas
                 if(totalMovimientos == 0){//Para que el rey pueda hacer un enroque, debe no haberse desplazado ninguna casilla
                     nuevaColumna -= 2;
-                    if((nuevaColumna < 97) || (nuevaColumna > 104)){//El rey se mueve fuera del tablero
+                    if(nuevaColumna < 97){//El rey se mueve fuera del tablero
                         throw new OperationNotSupportedException("ERROR: El Rey no puede salir del tablero");
                     }
                     if(color.equals(Color.BLANCO)){//Si es el rey blanco

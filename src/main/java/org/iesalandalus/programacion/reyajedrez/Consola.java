@@ -51,7 +51,7 @@ public class Consola {
             mostrarMenuDirecciones();
             opcion = Entrada.entero();
         }while((opcion < 1) || (opcion == 5) || (opcion > 11));
-        Direccion direccion = Direccion.SURESTE;
+        Direccion direccion = Direccion.SURESTE;//Inicializamos a cualquier valor para que compile. No es posible un error dado que ya se ha validado la opción en while anterior.
         switch (opcion){
             case 7://Escogemos Noroeste
                 direccion = Direccion.NOROESTE;
