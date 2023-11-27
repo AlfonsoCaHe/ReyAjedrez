@@ -1,5 +1,6 @@
 package org.iesalandalus.programacion.reyajedrez;
 
+import org.iesalandalus.programacion.reyajedrez.modelo.Color;
 import org.iesalandalus.programacion.reyajedrez.modelo.Direccion;
 import org.iesalandalus.programacion.reyajedrez.modelo.Rey;
 import org.iesalandalus.programacion.utilidades.Entrada;
@@ -18,7 +19,8 @@ public class MainApp {
                 crearReyDefecto();
                 break;
             case 2:
-                crearReyColor();
+                Color color = Consola.elegirOpcion();//Elegimos un color
+                crearReyColor(color);
                 break;
             case 3:
                 Direccion direccion = Consola.elegirDireccion();
@@ -31,6 +33,10 @@ public class MainApp {
 
     private static void crearReyDefecto(){
         rey = new Rey();
+    }
+
+    private static void crearReyColor(Color color){
+        rey = new Rey(color);
     }
 
 
