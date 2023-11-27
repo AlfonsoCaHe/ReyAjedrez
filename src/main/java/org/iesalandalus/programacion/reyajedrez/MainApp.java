@@ -23,8 +23,7 @@ public class MainApp {
                 crearReyColor(color);
                 break;
             case 3:
-                Direccion direccion = Consola.elegirDireccion();
-                rey.mover(direccion);
+                mover();
                 break;
             case 4:
                 Consola.despedirse();
@@ -39,5 +38,20 @@ public class MainApp {
         rey = new Rey(color);
     }
 
+    private static void mover() throws OperationNotSupportedException {
+        boolean desplazado = false;
+        do{
+            try{
+                System.out.println("¿En qué dirección desea desplazar el rey?");
+                Consola.mostrarMenuDirecciones();
+                Direccion direccion = Consola.elegirDireccion();
+                rey.mover(direccion);
+                desplazado = true;
+            }catch (OperationNotSupportedException oe){
+                System.out.println("ERROR: El rey no se puede mover en esa dirección.");
+            }
+        }while (!desplazado);
+
+    }
 
 }
