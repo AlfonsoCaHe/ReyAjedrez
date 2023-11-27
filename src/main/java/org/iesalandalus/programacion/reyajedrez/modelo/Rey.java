@@ -48,7 +48,7 @@ public class Rey {
 
     private void setPosicion(Posicion posicion){
         if((posicion.getFila() < 1) || (posicion.getFila() > 8)){
-            throw new IndexOutOfBoundsException("ERROR: La posición del Rey es incorrecta");
+            throw new IndexOutOfBoundsException("ERROR: La posición del Rey no es válida");
         }
         if(posicion.getColumna() > 0){
             throw new IndexOutOfBoundsException("ERROR: La posición del Rey es incorrecta");
