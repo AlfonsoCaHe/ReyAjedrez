@@ -28,7 +28,13 @@ public class MainApp {
                 crearReyColor(color);
                 break;
             case 3:
-                mover();
+                try{
+                    mover();
+                }catch (OperationNotSupportedException oe){
+                    System.out.println("ERROR: el movimiento ha sido incorrecto.");
+                }catch (IllegalArgumentException ie){
+                    System.out.println("ERROR: la posición no es posible. FUERA DE RANGO");
+                }
                 break;
             case 4:
                 Consola.despedirse();//Nos despediremos al salir
