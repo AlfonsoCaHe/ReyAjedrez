@@ -1,8 +1,8 @@
 package org.iesalandalus.programacion.reyajedrez.modelo;
 
 public enum Color {
-    BLANCO("BLANCO"),
-    NEGRO("NEGRO");
+    BLANCO("Blanco"),
+    NEGRO("Negro");
 
     private String cadenaAMostrar;
 

@@ -17,24 +17,31 @@ public class Posicion {
 
     private void setFila(int fila){
         if((fila < 1) || (fila > 8)){
-            throw new IllegalArgumentException("ERROR: La posición de la fila del Rey es incorrecta");
+            throw new IllegalArgumentException("ERROR: Fila no válida");
         }
         this.fila = fila;
     }
 
     private void setColumna(char columna){
         if(columna > 'h'){
-            throw new IllegalArgumentException("ERROR: La posición de la columna del Rey es incorrecta");
+            throw new IllegalArgumentException("ERROR: Columna no válida");
         }
         this.columna = columna;
     }
 
-    public Posicion(int fila, char columna){
-        setFila(fila);
-        setColumna(columna);
+    public Posicion(int fila, char columna) throws IllegalArgumentException{
+        try{
+            setFila(fila);
+            setColumna(columna);
+        }catch(IllegalArgumentException ie){
+            throw new IllegalArgumentException("ERROR: Fila no válida");
+        }
     }
 
     public Posicion(Posicion p){
+        if(p == null){
+            throw new NullPointerException("ERROR: La posición no es válida");
+        }
         fila = p.getFila();
         columna = p.getColumna();
     }
@@ -55,6 +62,6 @@ public class Posicion {
 
     @Override
     public String toString(){
-        return "" + fila + columna;
+        return "fila=" + fila +", columna="+ columna;
     }
 }

@@ -58,7 +58,7 @@ public class Rey {
 
     public void mover(Direccion direccion) throws OperationNotSupportedException {
         if(direccion == null){//Si la direccion es nula
-            throw new NullPointerException("ERROR: La posición del Rey no puede ser nula");
+            throw new NullPointerException("ERROR: La dirección no puede ser nula");
         }
         //Variable auxiliares
         int nuevaColumna = posicion.getColumna();
@@ -213,6 +213,6 @@ public class Rey {
 
     @Override
     public String toString(){
-        return "Rey "+color.toString() +" en " + posicion.getFila() + posicion.getColumna();
+        return "color="+color.toString() +", posicion=(fila=" + posicion.getFila() +", columna="+ posicion.getColumna()+")";
     }
 }
