@@ -66,11 +66,11 @@ public class MainApp {
         }while (!desplazado);
     }
 
-    private static void mostrarRey(){
+    private static void mostrarRey() throws NullPointerException {
         if(rey != null){
             System.out.println(rey.toString());
         }else{
-            System.out.println("De momento no se ha creado el rey.");
+            throw new NullPointerException("ERROR: No se ha creado el rey.");
         }
     }
 
